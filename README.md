@@ -7,7 +7,6 @@
   <img src="https://img.shields.io/badge/framework-Qt%20Widgets-green?style=flat-square&logo=qt">
   <img src="https://img.shields.io/badge/memory_idle-100MB-blue?style=flat-square">
   <img src="https://img.shields.io/badge/memory_peak-230MB-orange?style=flat-square">
-  <img src="https://img.shields.io/badge/license-MIT-purple?style=flat-square">
 </p>
 
 # Lume Media Player
