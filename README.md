@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/memory_peak-230MB-orange?style=flat-square">
 </p>
 
-# Lume Media Player
+# Lume Media Player Lite
 
 Lume Media Player is built with Qt Widgets and focuses on **controlled memory usage** instead of bloated abstraction layers.
 
