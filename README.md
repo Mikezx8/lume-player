@@ -98,7 +98,7 @@ this player keeps usage **tight and proportional to actual workload**.
 
 ## Build
 
-qmake && make -j$(nproc)
+    qmake && make -j$(nproc)
 
 ## Usage
 
