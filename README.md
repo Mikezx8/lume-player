@@ -1,22 +1,33 @@
 # Lume Media Player
 
 <p align="center">
-  <img src="Pictures/logo.png" alt="Lume Logo" width="96">
+  <img src="Pictures/logo.png" alt="Lume Logo" width="180">
 </p>
 
 <p align="center">
   <b>Lume Media Player</b> is a Qt Widgets media player for the Lume environment.
 </p>
 
-<p align="center">
-  <img src="Pictures/image1.png" alt="App preview 1" width="320">
-  <img src="Pictures/image2.png" alt="App preview 2" width="320">
-</p>
+## Screenshots
 
-<p align="center">
-  <img src="Pictures/image3.png" alt="Idle memory usage" width="320">
-  <img src="Pictures/memory.png" alt="Memory usage while watching" width="320">
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="Pictures/image1.png" alt="App preview 1" width="430">
+    </td>
+    <td align="center">
+      <img src="Pictures/image2.png" alt="App preview 2" width="430">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="Pictures/image3.png" alt="Idle memory usage" width="430">
+    </td>
+    <td align="center">
+      <img src="Pictures/memory.png" alt="Memory usage while watching" width="430">
+    </td>
+  </tr>
+</table>
 
 ## Overview
 
