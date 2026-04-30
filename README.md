@@ -173,6 +173,24 @@ Theme example:
 
     #!/usr/bin/env bash
     set -e
+    # Build
+    qmake && make -j$(nproc)
+
+    # Install binary (creates system-wide command)
+    sudo install -m 755 media /usr/local/bin/lumemedia
+
+    # Install desktop entry
+    sudo install -m 644 lumemedia.desktop /usr/share/applications/
+
+    # Install icon
+    sudo mkdir -p /usr/share/icons/hicolor/128x128/apps/
+    sudo install -m 644 Pictures/logo.png /usr/share/icons/hicolor/128x128/apps/lumemedia.png
+
+    # Update icon cache
+    sudo gtk-update-icon-cache /usr/share/icons/hicolor/ 2>/dev/null || true
+
+    # Update desktop database
+    sudo update-desktop-database /usr/share/applications/ 2>/dev/null || true
 
     THEME_DIR="$HOME/.lumeconf"
     THEME_FILE="$THEME_DIR/theme.json"
