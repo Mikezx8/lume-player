@@ -527,7 +527,7 @@ public:
         connect(thumbnailExtractor, &ThumbnailExtractor::thumbnailReady,
                 this, &PlayerWindow::onThumbnailReady);
 
-        setWindowTitle("Lume");
+        setWindowTitle("LumeMedia");
         resize(1280, 720);
         setMinimumSize(640, 360);
         setAttribute(Qt::WA_StyledBackground, true);
@@ -1560,7 +1560,7 @@ private:
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-    app.setApplicationName("Lume");
+    app.setApplicationName("LumeMedia");
 
     QCommandLineParser parser;
     parser.setApplicationDescription("Lume media player");
