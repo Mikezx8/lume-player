@@ -1,18 +1,16 @@
-# Lume Media Player
-
 <p align="center">
   <img src="Pictures/logo.png" alt="Lume Logo" width="450">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-linux-lightgrey?style=flat-square&logo=linux&logoColor=white" alt="Platform">
-  <img src="https://img.shields.io/badge/framework-Qt%20Widgets-green?style=flat-square&logo=qt&logoColor=white" alt="Framework">
-  <img src="https://img.shields.io/badge/memory-100MB%20idle-blue?style=flat-square" alt="Memory Idle">
-  <img src="https://img.shields.io/badge/playback-230MB-peak-orange?style=flat-square" alt="Memory Peak">
-  <img src="https://img.shields.io/badge/license-MIT-purple?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/platform-linux-lightgrey?style=flat-square&logo=linux">
+  <img src="https://img.shields.io/badge/framework-Qt%20Widgets-green?style=flat-square&logo=qt">
+  <img src="https://img.shields.io/badge/memory_idle-100MB-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/memory_peak-230MB-orange?style=flat-square">
+  <img src="https://img.shields.io/badge/license-MIT-purple?style=flat-square">
 </p>
 
-## Overview
+# Lume Media Player
 
 Lume Media Player is built with Qt Widgets and focuses on **controlled memory usage** instead of bloated abstraction layers.
 
