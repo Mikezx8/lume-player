@@ -2,9 +2,9 @@
 Type=Application
 Name=Lume Media
 Comment=Open audio and video files in Lume Media Player
-Exec=media %U
+Exec=lumemedia %U
 Terminal=false
 Categories=AudioVideo;Player;Video;Audio;
 MimeType=video/mp4;video/mkv;video/x-matroska;video/avi;video/quicktime;video/webm;audio/mpeg;audio/mp3;audio/x-wav;audio/flac;audio/mp4;audio/ogg;application/ogg;
-Icon=media
+Icon=lumemedia
 StartupNotify=true
