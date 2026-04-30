@@ -8,34 +8,81 @@
   <b>Lume Media Player</b> is a Qt Widgets media player for the Lume environment.
 </p>
 
-## Screenshots
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="Pictures/image1.png" alt="App preview 1" width="430">
-    </td>
-    <td align="center">
-      <img src="Pictures/image2.png" alt="App preview 2" width="430">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="Pictures/image3.png" alt="Idle memory usage" width="430">
-    </td>
-    <td align="center">
-      <img src="Pictures/memory.png" alt="Memory usage while watching" width="430">
-    </td>
-  </tr>
-</table>
+---
 
 ## Overview
 
-Lume Media Player is built with Qt Widgets and designed with memory safety in mind. It stays around **100 MB when idle** and about **230 MB at maximum**, which is strong efficiency for a media player with a full graphical interface and useful features.
+Lume Media Player is built with Qt Widgets and focuses on **controlled memory usage** instead of bloated abstraction layers.
 
-It is a **Lume app** and it reads theme values from:
+- ~**100 MB RAM when idle**
+- ~**230 MB during playback (peak)**
 
-    ~/.lumeconf/theme.json
+This is lower than many media players that sit around **300–400 MB+** under the same workload.
+
+---
+
+## Interface
+
+<p align="center">
+  <img src="Pictures/image1.png" width="420">
+  <img src="Pictures/image2.png" width="420">
+</p>
+
+Clean Qt Widgets interface with:
+- playback controls
+- playlist drawer
+- keyboard shortcuts
+- fullscreen support
+
+---
+
+## Memory Behavior (Explained)
+
+### Idle State (~100 MB)
+
+<p align="center">
+  <img src="Pictures/image3.png" width="500">
+</p>
+
+When the player is open but not playing anything, memory stays around **100 MB**.
+
+This is because:
+- no decoding pipelines are active
+- no frame buffers are allocated
+- Qt Widgets UI stays lightweight (no heavy scene graph or GPU layers)
+- only the player core and UI are resident in memory
+
+So what you're seeing here is basically the **base footprint of the app**, not inflated by media processing.
+
+---
+
+### Playback State (~230 MB)
+
+<p align="center">
+  <img src="Pictures/memory.png" width="500">
+</p>
+
+When media starts playing, memory rises to around **230 MB**.
+
+That increase comes from:
+- **decoder buffers** (video/audio streams)
+- **frame storage** (multiple frames buffered for smooth playback)
+- **Qt multimedia backend allocations**
+- **resolution-dependent usage** (higher resolution → more memory)
+
+The key point is:
+- memory increases only when needed (during playback)
+- it does not spike uncontrollably
+- it stays within a predictable range
+
+Compared to many players that:
+- preload aggressively
+- stack GPU buffers heavily
+- or use heavier UI frameworks
+
+this player keeps usage **tight and proportional to actual workload**.
+
+---
 
 ## Features
 
@@ -47,9 +94,11 @@ It is a **Lume app** and it reads theme values from:
 - Memory-conscious design
 - Built for the Lume desktop environment
 
+---
+
 ## Build
 
-    qmake && make -j$(nproc)
+qmake && make -j$(nproc)
 
 ## Usage
 
