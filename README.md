@@ -1,7 +1,7 @@
 # Lume Media Player
 
 <p align="center">
-  <img src="Pictures/logo.png" alt="Lume Logo" width="180">
+  <img src="Pictures/logo.png" alt="Lume Logo" width="150">
 </p>
 
 <p align="center">
