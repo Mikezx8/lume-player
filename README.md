@@ -4,10 +4,6 @@
   <img src="Pictures/logo.png" alt="Lume Logo" width="450">
 </p>
 
-<p align="center">
-  <b>Lume Media Player</b> is a Qt Widgets media player for the Lume environment.
-</p>
-
 ## Overview
 
 Lume Media Player is built with Qt Widgets and focuses on **controlled memory usage** instead of bloated abstraction layers.
