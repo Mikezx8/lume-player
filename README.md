@@ -1,148 +1,185 @@
 # Lume Media Player
 
-![Lume Media Player Logo](Pictures/logo.png)
+<p align="center">
+  <img src="Pictures/logo.png" alt="Lume Logo" width="96">
+</p>
 
-A lightweight **Lume** media player built with **Qt Widgets**.
+<p align="center">
+  <b>Lume Media Player</b> is a Qt Widgets media player for the Lume environment.
+</p>
 
-It is designed with memory safety and practical use in mind, while still keeping a clean interface, keyboard shortcuts, playlist handling, file opening support, theme loading, and media playback features.
+<p align="center">
+  <img src="Pictures/image1.png" alt="App preview 1" width="320">
+  <img src="Pictures/image2.png" alt="App preview 2" width="320">
+</p>
 
-## Preview
+<p align="center">
+  <img src="Pictures/image3.png" alt="Idle memory usage" width="320">
+  <img src="Pictures/memory.png" alt="Memory usage while watching" width="320">
+</p>
 
-![App preview 1](Pictures/image1.png)
-![App preview 2](Pictures/image2.png)
+## Overview
 
-## Memory Usage
+Lume Media Player is built with Qt Widgets and designed with memory safety in mind. It stays around **100 MB when idle** and about **230 MB at maximum**, which is strong efficiency for a media player with a full graphical interface and useful features.
 
-![Idle memory usage](Pictures/image3.png)
-![Memory usage while watching](Pictures/memory.png)
+It is a **Lume app** and it reads theme values from:
 
-This player stays around **100 MB when idle** and around **230 MB at max** in normal use, which is solid for a media player with a full widget-based interface.
+    ~/.lumeconf/theme.json
 
 ## Features
 
-- Built with **Qt Widgets**
-- Media opening by file argument
-- File manager support through `.desktop`
+- Qt Widgets interface
 - Keyboard shortcuts
-- Playlist drawer
-- Playback controls
-- Theme support through `~/.lumeconf/theme.json`
-- Custom overlay UI
-- Memory-conscious layout and media handling
+- Playlist support
+- File and argument-based media opening
+- Theme support from `~/.lumeconf/theme.json`
+- Memory-conscious design
+- Built for the Lume desktop environment
 
 ## Build
 
-```bash
-qmake && make -j$(nproc)
-```
+    qmake && make -j$(nproc)
 
-## Desktop entry
+## Usage
 
-Use the included `.desktop` file so file managers and desktop environments can open media files directly with the player.
+Open a media file directly:
 
-## Theme
+    media /path/to/video.mp4
 
-The app looks for:
+Open a folder:
 
-```bash
-~/.lumeconf/theme.json
-```
+    media /path/to/media-folder
 
-If the file exists, it uses it. If not, it falls back to built-in defaults.
+## Theme File
 
-### Create the theme file
+Lume Media Player looks for:
 
-```bash
-#!/usr/bin/env bash
-set -e
+    ~/.lumeconf/theme.json
 
-theme_dir="$HOME/.lumeconf"
-theme_file="$theme_dir/theme.json"
+Theme example:
 
-mkdir -p "$theme_dir"
+    {
+        "bg-primary":     "#1a0a0a #130942 45deg",
+        "bg-secondary":   "#120505",
+        "bg-tertiary":    "#1f0a0a",
+        "bg-hover":       "#2a0f0f",
+        "text-primary":   "#ffe4e4",
+        "text-secondary": "#d4a5a5",
+        "text-muted":     "#704040",
+        "accent-purple":  "#ff6b6b",
+        "accent-blue":    "#ff4757",
+        "accent-cyan":    "#ff6348",
+        "accent-green":   "#ff5252",
+        "accent-red":     "#ff3838",
+        "accent-yellow":  "#ff9f43",
+        "border-color":   "#2a0f0f",
+        "selection-bg":   "rgba(255, 56, 56, 0.15)",
 
-if [ -f "$theme_file" ]; then
-    exit 0
-fi
+        "border":               "on",
+        "outline-glow":         "on",
+        "border-pulse-effect":  "on",
+        "rounding-corners":     "on",
+        "border-thickness":     "2",
+        "border-opacity":       "100",
+        "background-opacity":   "10",
 
-cat > "$theme_file" <<'EOF'
-{
-    "bg-primary":     "#1a0a0a #130942 45deg",
-    "bg-secondary":   "#120505",
-    "bg-tertiary":    "#1f0a0a",
-    "bg-hover":       "#2a0f0f",
-    "text-primary":   "#ffe4e4",
-    "text-secondary": "#d4a5a5",
-    "text-muted":     "#704040",
-    "accent-purple":  "#ff6b6b",
-    "accent-blue":    "#ff4757",
-    "accent-cyan":    "#ff6348",
-    "accent-green":   "#ff5252",
-    "accent-red":     "#ff3838",
-    "accent-yellow":  "#ff9f43",
-    "border-color":   "#2a0f0f",
-    "selection-bg":   "rgba(255, 56, 56, 0.15)",
+        "general-opacity":      "100",
+        "onwindow-opacity":     "100",
+        "outwindow-opacity":    "85",
+        "title-opacity":        "100",
+        "notification-opacity": "10",
+        "toolbar-opacity":      "100",
+        "text-follows-opacity": "on",
 
-    "border":               "on",
-    "outline-glow":         "on",
-    "border-pulse-effect":  "on",
-    "rounding-corners":     "on",
-    "border-thickness":     "2",
-    "border-opacity":       "100",
-    "background-opacity":   "10",
+        "windows-blur":         "on",
+        "blur-intensity":       "40",
 
-    "general-opacity":      "100",
-    "onwindow-opacity":     "100",
-    "outwindow-opacity":    "85",
-    "title-opacity":        "100",
-    "notification-opacity": "10",
-    "toolbar-opacity":      "100",
-    "text-follows-opacity": "on",
+        "onwindow-outline":     "on",
+        "offwindow-outline":    "off",
+        "fullscreen-corners":   "0",
+        "minimized-corners":    "8",
+        "taskbar-border":       "on",
+        "quicksettings":        "right",
+        "notification-position": "bottom,right",
+        "toast-position":       "bottom,center",
+        "taskbar-center":       "bottom",
+        "taskbar-layer":        "fixed",
+        "clock-font":           "DejaVu Sans Mono",
+        "notification-sound":   "path/to/sound",
 
-    "windows-blur":         "on",
-    "blur-intensity":       "40",
+        "taskbar-position":     "bottom"
+    }
 
-    "onwindow-outline":     "on",
-    "offwindow-outline":    "off",
-    "fullscreen-corners":   "0",
-    "minimized-corners":    "8",
-    "taskbar-border":       "on",
-    "quicksettings":        "right",
-    "notification-position": "bottom,right",
-    "toast-position":       "bottom,center",
-    "taskbar-center":       "bottom",
-    "taskbar-layer":        "fixed",
-    "clock-font":           "DejaVu Sans Mono",
-    "notification-sound":   "path/to/sound",
+## Create `theme.json` if missing
 
-    "taskbar-position":     "bottom"
-}
-EOF
-```
+    #!/usr/bin/env bash
+    set -e
 
-Save that as a shell script if you want to generate the theme file automatically.
+    THEME_DIR="$HOME/.lumeconf"
+    THEME_FILE="$THEME_DIR/theme.json"
 
-## API
+    mkdir -p "$THEME_DIR"
 
-Launch with a media file or folder path:
+    if [ ! -f "$THEME_FILE" ]; then
+        cat > "$THEME_FILE" <<'EOF'
+    {
+        "bg-primary":     "#1a0a0a #130942 45deg",
+        "bg-secondary":   "#120505",
+        "bg-tertiary":    "#1f0a0a",
+        "bg-hover":       "#2a0f0f",
+        "text-primary":   "#ffe4e4",
+        "text-secondary": "#d4a5a5",
+        "text-muted":     "#704040",
+        "accent-purple":  "#ff6b6b",
+        "accent-blue":    "#ff4757",
+        "accent-cyan":    "#ff6348",
+        "accent-green":   "#ff5252",
+        "accent-red":     "#ff3838",
+        "accent-yellow":  "#ff9f43",
+        "border-color":   "#2a0f0f",
+        "selection-bg":   "rgba(255, 56, 56, 0.15)",
 
-```bash
-media /path/to/video.mp4
-media /path/to/folder
-```
+        "border":               "on",
+        "outline-glow":         "on",
+        "border-pulse-effect":  "on",
+        "rounding-corners":     "on",
+        "border-thickness":     "2",
+        "border-opacity":       "100",
+        "background-opacity":   "10",
 
-The player will open the argument directly and load media from it.
+        "general-opacity":      "100",
+        "onwindow-opacity":     "100",
+        "outwindow-opacity":    "85",
+        "title-opacity":        "100",
+        "notification-opacity": "10",
+        "toolbar-opacity":      "100",
+        "text-follows-opacity": "on",
 
-## Keyboard shortcuts
+        "windows-blur":         "on",
+        "blur-intensity":       "40",
 
-- `Space` — play / pause
-- `Left` / `Right` — seek backward / forward
-- `Alt + Left` — previous file
-- `Alt + Right` — next file
-- `Up` / `Down` — volume control
-- `F` / `F11` — fullscreen
-- `Esc` — exit fullscreen
+        "onwindow-outline":     "on",
+        "offwindow-outline":    "off",
+        "fullscreen-corners":   "0",
+        "minimized-corners":    "8",
+        "taskbar-border":       "on",
+        "quicksettings":        "right",
+        "notification-position": "bottom,right",
+        "toast-position":       "bottom,center",
+        "taskbar-center":       "bottom",
+        "taskbar-layer":        "fixed",
+        "clock-font":           "DejaVu Sans Mono",
+        "notification-sound":   "path/to/sound",
 
-## Notes
+        "taskbar-position":     "bottom"
+    }
+    EOF
+    fi
 
-The player is meant to stay simple, usable, and efficient while still feeling polished.
+## Keyboard Shortcuts
+
+The player includes useful shortcuts for playback and navigation.
+
+## License
+
+Lume Media Player is part of the Lume app ecosystem.
